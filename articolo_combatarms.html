@@ -4,62 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        section.link-section {
-            text-align: center;
-            padding: 20px;
-        }
-
-        p.link-text {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        a.game-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Introduzione a Combat Arms</title>
 </head>
 
@@ -95,15 +40,52 @@
             tattico che vi terrà incollati allo schermo mentre vi lanciate in scontri ad alta intensità e vi dimostrate
             degni di essere chiamati veri soldati d'élite.</p>
 
+    </main>
+
+    <div class="dropdown">
+        <button class="dropbtn">Link Al Gioco</button>
+        <div class="dropdown-content">
+            <a href="https://combatarms-c.valofe.com/">Gioca a Combat Arms</a>
+            <a href="articolo_combatarms_guida.html">Guida Alle Armi e Alle Modalità</a>
+        </div>
+    </div>
+    <a class="return-link" href="index.html">Torna alla Home Page</a>
+
+    <br></br>
+    <br></br>
 
 
-        <section class="link-section">
-            <img src="image-combatarms/combatarms.jpg" alt="Immagine Combat Arms" width="500">
-            <p></p>
-            <a class="game-link" href="https://combatarms-c.valofe.com/">Gioca a Combat Arms</a>
-            <br></br>
-            <a class="game-link" href="index.html">Torna alla Home Page</a>
-        </section>
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="image-combatarms/combatarms.jpg" alt="Immagine 1">
+            <img src="image-combatarms/combatarms1.jpg" alt="Immagine 2">
+            <img src="image-combatarms/combatarms2.jpg" alt="Immagine 3">
+            <img src="image-combatarms/combatarms3.jpg" alt="Immagine 4">
+        </div>
+    </div>
+    <button class="carousel-button" onclick="prevSlide()">Precedente</button>
+    <button class="carousel-button" onclick="nextSlide()">Successiva</button>
+
+    <script>
+        let currentIndex = 0;
+        const carousel = document.querySelector('.carousel');
+        const images = carousel.querySelectorAll('img');
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const offset = -currentIndex * images[0].clientWidth;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
+    </script>
         <footer>
             <p>&copy;2023 VALOFE GLOBAL Ltd. Tutti i diritti riservati.</p>
         </footer>
