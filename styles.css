@@ -1,4 +1,6 @@
 
+@media screen and (max-width: 600px) {
+
 .carousel-container {
     width: 500px;
     margin: 0;
@@ -157,4 +159,5 @@ footer {
     cursor: pointer;
     margin-left: 0.5cm;
 
+}
 }
